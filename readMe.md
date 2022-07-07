@@ -71,7 +71,7 @@ It is deployed in dev namespace of switalk-dev cluster. The steps are following.
 
 1. login to the cluster
 ```
-aws eks --region us-east-1  update-kubeconfig --name swiftalk-dev
+aws eks --region us-east-1  update-kubeconfig --name dev
 ```
 2. create kubernetes secret of license file using this command
 ```
