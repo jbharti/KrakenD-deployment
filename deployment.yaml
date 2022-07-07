@@ -1,0 +1,34 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: krakend-deployment
+spec:
+  selector:
+    matchLabels:
+      app: krakend
+  replicas: 2
+  template:
+    metadata:
+      labels:
+        app: krakend
+        app.kubernetes.io/environment: dev
+    spec:
+      containers:
+      - name: krakend
+        image: 052351007912.dkr.ecr.us-east-1.amazonaws.com/krakend-ee:2.0.2
+        ports:
+        - containerPort: 8080
+        imagePullPolicy: IfNotPresent
+        command: [ "/usr/bin/krakend" ]
+        args: [ "run", "-d", "-c", "/etc/krakend/krakend.json","--accept-eula", "-p", "8080" ]
+        env:
+        - name: KRAKEND_PORT
+          value: "8080"
+        volumeMounts:
+        - name: kranend-lickey
+          mountPath: "/etc/krakend/LICENSE"
+          subPath: LICENSE
+      volumes:
+      - name: kranend-lickey
+        secret:
+          secretName: kranend-lickey

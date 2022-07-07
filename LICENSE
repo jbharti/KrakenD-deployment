@@ -1,0 +1,8 @@
+-----BEGIN CERTIFICATE-----
+To start KrakenD Enterprise without seeing the message above, make sure that:
+
+The file /etc/krakend/LICENSE exists
+The LICENSE file is a plain text file with no extension
+It contains the certificate we gave you (it looks like a PEM file)
+The file includes the surrounding -----BEGIN CERTIFICATE----- and -----END CERTIFICATE-----, and you have not deleted any dash or character accidentally, neither you have deleted the line breaks.
+-----END CERTIFICATE-----
